@@ -11,7 +11,7 @@ export default function MidFooter() {
                     <ul className='list-unstyled'>
                         <li><a href='#aboutus' className='fs-5 text-decoration-none text-black link-secondary'>About Us</a></li>
                         <li><a href='#contactus' className='fs-5 text-decoration-none text-black link-secondary'>Contact Us</a></li>
-                        <li><a href='#login' className='fs-5 text-decoration-none text-black link-secondary'>Sign In</a></li>
+                        <li><a href='#myAccount' className='fs-5 text-decoration-none text-black link-secondary'>My Account</a></li>
                         <li><a href='#menu' className='fs-5 text-decoration-none text-black link-secondary'>Menu</a></li>
                     </ul>
                 </div>
