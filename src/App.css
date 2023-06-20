@@ -1,9 +1,9 @@
 .nav {
     background-color: rgb(222, 236, 248);
     /* margin: 0px 0px 10px 0px; */
-    position: sticky;
-    top: 0;
-    z-index: 1;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1 !important;
 }
 
 .searchInput {
@@ -29,14 +29,14 @@
 
 .navBtn {
     font-size: 20px;
-    color: #000;
+    color: #000 !important;
     padding: 10px;
     margin: 0px 10px;
 }
 
 .navBtn:hover {
     background-color: rgb(143, 194, 241);
-    color: white;
+    color: white !important;
     border-radius: 10px;
 
 }
@@ -48,6 +48,9 @@
     object-fit: cover;
 }
 
+.imgCard:hover {
+    opacity: 80%;
+}
 
 .footer {
     background-image: url('components/assets/ffflurry.svg');
@@ -65,6 +68,18 @@
     background-color: #3b50ed;
     border-radius: 100%;
 }
+
+.info-slider {
+    width: 18em;
+}
+
+.info-slide-image {
+    width: 18em;
+    height: 400px;
+    object-fit: cover;
+}
+
+
 
 @media only screen and (max-width: 1024px) {
     .searchInput {

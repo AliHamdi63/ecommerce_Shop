@@ -1,6 +1,7 @@
 import React from 'react'
 import imageLogo from '../../Logos/Logo.png'
 import { Container, Nav, Navbar, Offcanvas } from 'react-bootstrap'
+import { NavLink } from 'react-router-dom'
 
 
 export default function NavBar() {
@@ -10,9 +11,10 @@ export default function NavBar() {
         <>
             <Navbar key={'md'} expand={'md'} className="nav">
                 <Container fluid>
-                    <Navbar.Brand href="#" className='ms-4 me-lg-5 p-0'>
+                    <NavLink to={`/home`} className='ms-4 me-lg-5 p-0'>
                         <img src={imageLogo} height={60} width={150} className=' p-0' alt='logo' />
-                    </Navbar.Brand>
+                    </NavLink>
+
 
                     <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${'md'}`} className='Togglecanvas' />
                     <Navbar.Offcanvas
@@ -27,24 +29,18 @@ export default function NavBar() {
                         </Offcanvas.Header>
 
                         <Offcanvas.Body>
-                            {/* <Form className="d-flex">
-                                <Form.Control
-                                    type="search"
-                                    placeholder="What are you looking for?"
-                                    className="searchInput"
-                                    aria-label="Search"
-                                />
-                            </Form> */}
 
                             <Nav className="justify-content-end d-flex flex-sm-row flex-column align-items-sm-center align-items-start flex-grow-1 me-4">
                                 <Nav.Link className='navBtn pe-4 ps-4' href="#menu"><i className="fa fa-duotone fa-search"></i></Nav.Link>
 
-                                <Nav.Link className='navBtn me-0 d-flex flex-row align-items-center' href="#login">
+                                {/* Login & Register */}
+                                {/* <Nav.Link className='navBtn me-0 d-flex flex-row align-items-center' href="#login">
                                     <span className="me-2 ">Name</span>
                                     <img className="avatar-img" src='https://www.kindpng.com/picc/m/458-4587739_thumb-image-e-commerce-hd-png-download.png' alt="avatar_img" />
                                 </Nav.Link>
                                 <Nav.Link className='navBtn' href="#login">Sign In 👤</Nav.Link>
-                                <span className='fs-5 d-none d-md-block' >|</span>
+                                <span className='fs-5 d-none d-md-block' >|</span> */}
+
                                 <Nav.Link className='navBtn' href="#Cart">Cart 🛒</Nav.Link>
                             </Nav>
                         </Offcanvas.Body>
