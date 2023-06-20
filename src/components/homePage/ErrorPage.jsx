@@ -8,7 +8,7 @@ export default function ErrorPage() {
                 <div className='p-5 mt-5 mb-2'>
                     <img src='https://azoranov.com/wp-content/themes/madara/images/404.png' />
                 </div>
-                <Button href='#menu' variant="secondary" className='pe-4 ps-4 pt-2 pb-2 fs-5'>Go Shopping Now</Button>
+                <Button href='/' variant="secondary" className='pe-4 ps-4 pt-2 pb-2 fs-5'>Go Shopping Now</Button>
             </Container>
         </>
     )
