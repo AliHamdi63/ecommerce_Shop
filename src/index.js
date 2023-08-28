@@ -5,19 +5,22 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "bootstrap/dist/css/bootstrap.css";
 import { BrowserRouter } from 'react-router-dom';
+import { store } from "./redux/app/store";
 
-import { createStore, applyMiddleware } from 'redux';
+// import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import rootReducer from "./redux/reducers/store";
+// import rootReducer from "./redux/reducers/store";
 
-import promiseMiddleWare from "redux-promise";
+// import promiseMiddleWare from "redux-promise";
 
-let myStore = applyMiddleware(promiseMiddleWare)(createStore);
+// let myStore = applyMiddleware(promiseMiddleWare)(createStore);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Provider store={myStore(rootReducer)}>
+    {/* <Provider store={myStore(rootReducer)}> */}
+    <Provider store={store}>
+
       <BrowserRouter>
         <App />
       </BrowserRouter>

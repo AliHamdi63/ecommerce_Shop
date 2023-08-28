@@ -5,6 +5,7 @@ import NavBar from './components/Navbar/NavBar';
 import Home from './components/homePage/Home';
 import ProductInfo from './components/homePage/ProductInfo';
 import ErrorPage from './components/homePage/ErrorPage';
+import MainCart from './components/cartPage/MainCart';
 
 function App() {
   return (
@@ -15,8 +16,9 @@ function App() {
         <Route path='/' element={<Navigate to='/home' />} />
         <Route path='/home' element={<Home />} />
 
-
         <Route path='/products/:id' element={<ProductInfo />} />
+
+        <Route path='/cart' element={<MainCart />} />
 
         <Route path='*' element={<ErrorPage />} />
       </Routes>

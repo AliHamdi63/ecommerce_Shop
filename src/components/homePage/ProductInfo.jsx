@@ -1,27 +1,20 @@
 import React, { useEffect } from 'react'
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom'
-import { ProductInfoAction } from "../../redux/actions/ProductInfoAction"
+import { added } from '../../redux/features/cart/cartSlice';
 import { Button, Carousel } from 'react-bootstrap';
+import { getOneProduct } from '../../redux/features/product/productSlice';
 
-
-function ProductInfo(props) {
-
+function ProductInfo() {
     let { id } = useParams();
-    let { productInfo, getProductInfo } = props;
+    const state = useSelector(state => state);
+    const productInfo = state.product.oneProduct;
 
-    // let [product, setProduct] = useState({});
-    // let getProduct = async () => {
-    //     let response = await axios.get(`https://dummyjson.com/products/${id}`);
-    //     setProduct(response.data);
-    // }
-
+    const dispatch = useDispatch();
     useEffect(() => {
-
-        getProductInfo(id);
-
-    }, [getProductInfo])
-
+        dispatch(getOneProduct(id));
+    }, [])
+    document.title = productInfo.title;
 
     return (
         <>
@@ -87,23 +80,11 @@ function ProductInfo(props) {
 
                         </tbody>
                     </table>
-                    <Button variant='secondary' className='pe-5 ps-5 pt-2 pb-2'>+🛒</Button>
+                    <Button onClick={() => dispatch(added(productInfo))} variant='secondary' className='pe-5 ps-5 pt-2 pb-2'>+🛒</Button>
                 </div>
             </div>
         </>
     )
 }
 
-let mapStateToProps = (state) => {
-
-    return {
-        productInfo: state.ProductInfoReducer
-    }
-}
-let mapDispatchToProps = (dispatch) => {
-    return {
-        getProductInfo: (id) => { dispatch(ProductInfoAction(id)) }
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProductInfo);
+export default ProductInfo;

@@ -2,10 +2,12 @@ import React from 'react'
 import imageLogo from '../../Logos/Logo.png'
 import { Container, Nav, Navbar, Offcanvas } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
+import { useSelector } from 'react-redux';
 
 
 export default function NavBar() {
 
+    let numOfItems = useSelector((state) => state.cart.numOfItems);
 
     return (
         <>
@@ -41,7 +43,14 @@ export default function NavBar() {
                                 <Nav.Link className='navBtn' href="#login">Sign In 👤</Nav.Link>
                                 <span className='fs-5 d-none d-md-block' >|</span> */}
 
-                                <Nav.Link className='navBtn' href="#Cart">Cart 🛒</Nav.Link>
+                                <Nav.Link className='navBtn' href="/cart">
+                                    {/* Cart 🛒 */}
+                                    <span className="fa fa-shopping-basket ms-2 me-2 fs-5">
+                                        <sup className='bg-danger text-light fs-7' style={{ borderRadius: "50%", padding: "3px 6px" }}>
+                                            {numOfItems.length}
+                                        </sup>
+                                    </span>
+                                </Nav.Link>
                             </Nav>
                         </Offcanvas.Body>
                     </Navbar.Offcanvas>

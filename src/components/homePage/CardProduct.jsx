@@ -1,16 +1,16 @@
 import React from 'react'
 import { Card, Button } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
-
+import { added } from '../../redux/features/cart/cartSlice';
+import { useDispatch } from 'react-redux';
 function CardProduct(props) {
 
 
-  let { productData: item } = props;
-  // console.log(item);
-
+  let { productInfo: item } = props;
+  const dispatch = useDispatch();
 
   return (
-    <Card className='col-lg-3 col-10 col-xl-2 col-md-4 m-2'>
+    <Card className='col-lg-3 col-10 col-xl-2 col-md-4 m-2 shadow-lg bg-body rounded'>
       <NavLink to={`/products/${item.id}`} >
         <Card.Img
           variant="top"
@@ -35,15 +35,11 @@ function CardProduct(props) {
           {item.price}$
         </Card.Text>
 
-        <Button variant='secondary'>+🛒</Button>
+        <Button variant='secondary' onClick={() => dispatch(added(item))}>+🛒</Button>
       </Card.Body>
-      {/* </Card.Body> */}
     </Card>
   );
 }
 
+
 export default CardProduct;
-
-
-
-// { {Array.from({ length: 2 }).map((_, idx) => (  ))}  }
