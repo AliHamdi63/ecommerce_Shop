@@ -12,7 +12,7 @@ export default function MidFooter() {
                         <li><a href='#aboutus' className='fs-5 text-decoration-none text-black link-secondary'>About Us</a></li>
                         <li><a href='#contactus' className='fs-5 text-decoration-none text-black link-secondary'>Contact Us</a></li>
                         <li><a href='#myAccount' className='fs-5 text-decoration-none text-black link-secondary'>My Account</a></li>
-                        <li><a href='#menu' className='fs-5 text-decoration-none text-black link-secondary'>Menu</a></li>
+                        <li><a href='/search' className='fs-5 text-decoration-none text-black link-secondary'>Search</a></li>
                     </ul>
                 </div>
             </div>

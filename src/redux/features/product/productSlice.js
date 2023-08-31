@@ -5,14 +5,33 @@ const initialState = {
   loading: false,
   productsData: [],
   error: '',
-  oneProduct: {},
+
+  isLoadingSome: false,
+  someProducts: [],
+  anError: '',
+
   isOneProductLoading: false,
-  oneProductError: ''
+  oneProduct: {},
+  oneProductError: '',
+
+  isCategoryLoading: false,
+  categories: [],
+  categoriesError: '',
+
+  isSearchLoading: false,
+  searchedData: [],
+  searchError: '',
 }
 
 // Generated pending, fullfiled and rejected action types
-export const fetchProducts = createAsyncThunk('product/fetchProducts', () => {
-  return axios.get('https://dummyjson.com/products')
+export const fetchAllProducts = createAsyncThunk('product/fetchAllProducts', () => {
+  return axios.get('https://dummyjson.com/products?limit=100&skip=0')
+    .then((response) => response.data)
+
+})
+
+export const getSomeProducts = createAsyncThunk('product/getSomeProducts', (qty) => {
+  return axios.get(`https://dummyjson.com/products?limit=20&skip=${qty}`)
     .then((response) => response.data)
 
 })
@@ -23,24 +42,54 @@ export const getOneProduct = createAsyncThunk('product/getOneProduct', (id) => {
 
 });
 
+export const getCategories = createAsyncThunk('product/getCategories', () => {
+  return axios.get('https://dummyjson.com/products/categories')
+    .then((response) => response.data)
+
+});
+
+export const getSearchedData = createAsyncThunk('product/searchedData  ', (data) => {
+  // return axios.get(`https://dummyjson.com/products/search?q=${data}&limit=100&skip=0`)
+  return axios.get(`https://dummyjson.com/products/search?q=${data}`)
+    .then((response) => response.data)
+
+});
+
 const productSlice = createSlice({
   name: 'products',
   initialState,
   extraReducers:
   {
-    [fetchProducts.pending]: (state) => {
+    // get All Products
+    [fetchAllProducts.pending]: (state) => {
       state.loading = true;
     },
-    [fetchProducts.fulfilled]: (state, action) => {
+    [fetchAllProducts.fulfilled]: (state, action) => {
       state.loading = false;
       state.productsData = action.payload;
       state.error = '';
     },
-    [fetchProducts.rejected]: (state, action) => {
+    [fetchAllProducts.rejected]: (state, action) => {
       state.loading = false;
       state.productsData = [];
       state.error = action.error.message;
     },
+
+    // get some Products
+    [getSomeProducts.pending]: (state) => {
+      state.isLoadingSome = true;
+    },
+    [getSomeProducts.fulfilled]: (state, action) => {
+      state.isLoadingSome = false;
+      state.someProducts = action.payload;
+      state.anError = '';
+    },
+    [getSomeProducts.rejected]: (state, action) => {
+      state.isLoadingSome = false;
+      state.someProducts = [];
+      state.anError = action.error.message;
+    },
+
     // get one Product
     [getOneProduct.pending]: (state) => {
       state.isOneProductLoading = true;
@@ -53,7 +102,35 @@ const productSlice = createSlice({
     [getOneProduct.rejected]: (state, action) => {
       state.isOneProductLoading = false;
       state.oneProductError = action.error.message;
-    }
+    },
+
+    // get Categories
+    [getCategories.pending]: (state) => {
+      state.isCategoryLoading = true;
+    },
+    [getCategories.fulfilled]: (state, action) => {
+      state.isCategoryLoading = false;
+      state.categories = action.payload;
+      state.categoriesError = '';
+    },
+    [getCategories.rejected]: (state, action) => {
+      state.isCategoryLoading = false;
+      state.categoriesError = action.error.message;
+    },
+
+    // get getSearchedData
+    [getSearchedData.pending]: (state) => {
+      state.isSearchLoading = true;
+    },
+    [getSearchedData.fulfilled]: (state, action) => {
+      state.isSearchLoading = false;
+      state.searchedData = action.payload;
+      state.searchError = '';
+    },
+    [getSearchedData.rejected]: (state, action) => {
+      state.isSearchLoading = false;
+      state.searchError = action.error.message;
+    },
   }
 })
 

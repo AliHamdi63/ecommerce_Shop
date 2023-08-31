@@ -3,18 +3,18 @@
     /* margin: 0px 0px 10px 0px; */
     position: sticky !important;
     top: 0 !important;
-    z-index: 1 !important;
+    z-index: 2 !important;
 }
 
-.searchInput {
+/* .searchInput {
     max-width: 600px;
     min-width: 240px;
     width: 500px;
     border-radius: 6px;
     border-color: rgb(196, 220, 242);
     font-size: 18px;
-    /* margin-left: 20%; */
-}
+    //margin-left: 20%;
+} */
 
 .avatar-img {
     border-radius: 50%;
@@ -73,26 +73,96 @@
     width: 18em;
 }
 
+
 .info-slide-image {
     width: 18em;
     height: 400px;
     object-fit: cover;
 }
 
+.modal-mode {
+    width: 18em;
+}
 
+.modal-mode-image {
+    width: 18em;
+    height: 400px;
+    object-fit: cover;
+}
 
-@media only screen and (max-width: 1024px) {
-    .searchInput {
-        width: 440px;
-        border-radius: 6px;
-        border-color: rgb(196, 220, 242);
+#paginationStyle {
+    color: rgb(0, 0, 0) !important;
+    /* background-color: #aee4ed !important; */
+    border-color: #9b9b9b;
+    margin-right: 3px;
+    padding-right: 20px;
+}
+
+#paginationStyle:hover {
+    color: #eeeeee !important;
+    background-color: #5c5959 !important;
+}
+
+.trans {
+    position: relative;
+    animation-name: upDown;
+    animation-duration: 2s;
+    z-index: 3;
+    margin-left: 20px;
+    width: 100px !important;
+    height: 30px !important;
+    /* visibility: hidden; */
+    /* display: none !important; */
+}
+
+@keyframes upDown {
+    0% {
+        left: 0px;
+        /* right: 0px; */
+        /* visibility: visible; */
+        display: block !important;
+    }
+
+    50% {
+        left: 20px;
+        /* right: 0px; */
+        /* visibility: visible; */
+        display: block !important;
+
+    }
+
+    100% {
+        left: 0px;
+        /* right: 0px; */
+        /* visibility: visible; */
+        display: block !important;
     }
 }
 
+.categoryDropdown {
+    width: 180px !important;
+    margin-bottom: 25px;
+}
+
+/* #dropdown-basic-button {
+    margin: 15px;
+    width: 35vh;
+    background-color: #989c9c;
+    border-color: #989c9c;
+} */
+
+@media only screen and (max-width: 1024px) {
+    /* .searchInput {
+        width: 440px;
+        border-radius: 6px;
+        border-color: rgb(196, 220, 242);
+    } */
+}
+
 @media only screen and (max-width: 768px) {
-    .searchInput {
+    /* .searchInput {
         width: 240px;
         border-radius: 6px;
         border-color: rgb(196, 220, 242);
-    }
+    } */
 }

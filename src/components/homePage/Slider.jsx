@@ -16,9 +16,9 @@ function Slider() {
                             alt={item.title}
                         />
                         <Carousel.Caption>
-                            <h3>{item.title}</h3>
-                            <p>{item.description}</p>
-                            <Button href='/' variant="secondary" className='pe-4 ps-4 pt-2 pb-2 fs-5'>Go Shopping Now</Button>
+                            {/* <h3>{item.title}</h3> */}
+                            {/* <p>{item.description}</p> */}
+                            <Button href='/search' variant="secondary" className='pe-4 ps-4 pt-2 pb-2 fs-5'>Go Shopping Now</Button>
                         </Carousel.Caption>
                     </Carousel.Item>
                 )

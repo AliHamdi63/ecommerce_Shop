@@ -13,9 +13,9 @@ function ProductInfo() {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getOneProduct(id));
-    }, [])
+    }, [dispatch, id])
     document.title = productInfo.title;
-
+    // console.log(productInfo);
     return (
         <>
             <div className='d-flex flex-row flex-sm-col flex-wrap justify-content-center'>
@@ -43,7 +43,7 @@ function ProductInfo() {
                             <tr>
 
                                 <th scope="col">Category</th>
-                                <td scope="col">{productInfo.category}</td>
+                                <td>{productInfo.category}</td>
                             </tr>
                         </thead>
                         <tbody>

@@ -1,13 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Card, Button } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import { added } from '../../redux/features/cart/cartSlice';
 import { useDispatch } from 'react-redux';
+import ProductModal from './ProductModal';
 function CardProduct(props) {
-
 
   let { productInfo: item } = props;
   const dispatch = useDispatch();
+  const [modalShow, setModalShow] = useState(false);
 
   return (
     <Card className='col-lg-3 col-10 col-xl-2 col-md-4 m-2 shadow-lg bg-body rounded'>
@@ -34,7 +35,14 @@ function CardProduct(props) {
         <Card.Text className='fs-5 mb-0 '>
           {item.price}$
         </Card.Text>
-
+        <Button onClick={() => setModalShow(true)} className='text-decoration-none text-black link-secondary pt-1 pb-1 pe-2 ps-2 rounded-2 border-0 bg-light'>
+          <i className='fa fa-eye fs-4' ></i>
+        </Button>
+        <ProductModal
+          datainfo={item}
+          show={modalShow}
+          onHide={() => setModalShow(false)}
+        />
         <Button variant='secondary' onClick={() => dispatch(added(item))}>+🛒</Button>
       </Card.Body>
     </Card>

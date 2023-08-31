@@ -33,7 +33,7 @@ export default function NavBar() {
                         <Offcanvas.Body>
 
                             <Nav className="justify-content-end d-flex flex-sm-row flex-column align-items-sm-center align-items-start flex-grow-1 me-4">
-                                <Nav.Link className='navBtn pe-4 ps-4' href="#menu"><i className="fa fa-duotone fa-search"></i></Nav.Link>
+                                <Nav.Link className='navBtn pe-4 ps-4' href="/search"><i className="fa fa-duotone fa-search"></i></Nav.Link>
 
                                 {/* Login & Register */}
                                 {/* <Nav.Link className='navBtn me-0 d-flex flex-row align-items-center' href="#login">

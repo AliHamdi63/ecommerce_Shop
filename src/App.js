@@ -6,7 +6,7 @@ import Home from './components/homePage/Home';
 import ProductInfo from './components/homePage/ProductInfo';
 import ErrorPage from './components/homePage/ErrorPage';
 import MainCart from './components/cartPage/MainCart';
-
+import ProductsPage from './components/menuPage/ProductsPage';
 function App() {
   return (
     <div className="App">
@@ -19,6 +19,7 @@ function App() {
         <Route path='/products/:id' element={<ProductInfo />} />
 
         <Route path='/cart' element={<MainCart />} />
+        <Route path='/search' element={<ProductsPage />} />
 
         <Route path='*' element={<ErrorPage />} />
       </Routes>
